@@ -1,0 +1,22 @@
+[package]
+name = "{{project-name}}"
+version = "0.1.0"
+authors = ["{{authors}}"]
+edition = "2018"
+description = "A `cargo generate` template for quick-starting an nRF52 RTFM project"
+keywords = ["template"]
+
+[dependencies]
+cortex-m-semihosting = "0.3.3"
+panic-semihosting = "0.5.2"
+cortex-m-rtfm = "0.4.3"
+nrf52810-hal = { version = "0.8.1", features = ["rt"] }
+
+[profile.dev]
+opt-level = "s"
+
+[profile.release]
+opt-level = "s"
+debug = true
+lto = true
+codegen-units = 1
